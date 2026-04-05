@@ -1,0 +1,1242 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meine Musiksammlung</title>
+    <style>
+        :root {
+            --bg-color: #121212;
+            --card-bg: #1e1e1e;
+            --text-color: #ffffff;
+            --accent-color: #1db954; /* Spotify-Grün Style */
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h1 { margin-bottom: 30px; color: var(--accent-color); }
+
+        .playlist {
+            width: 100%;
+            max-width: 600px;
+        }
+
+        .song-card {
+            background: var(--card-bg);
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 15px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+        }
+
+        .song-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .song-title { font-weight: bold; font-size: 1.1em; }
+
+        audio {
+            width: 100%;
+            height: 35px;
+            filter: invert(100%) hue-rotate(180deg) brightness(1.5); /* Macht den Player auf dunklem Grund sichtbar */
+        }
+
+        .lyric-btn {
+            background: none;
+            border: 1px solid var(--accent-color);
+            color: var(--accent-color);
+            padding: 5px 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.8em;
+            transition: 0.3s;
+        }
+
+        .lyric-btn:hover {
+            background: var(--accent-color);
+            color: white;
+        }
+
+        .lyrics {
+            display: none;
+            margin-top: 15px;
+            font-size: 0.9em;
+            line-height: 1.4;
+            color: #ccc;
+            white-space: pre-wrap; /* Behält Zeilenumbrüche bei */
+            border-top: 1px solid #333;
+            padding-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>🔥🪩 Der Bruder 2026 🪩🔥</h1>
+
+    <div class="playlist" id="playlist">
+        
+        <div class="song-card">
+            <div class="song-info">
+                <span class="song-title">01. Der Bruder - Danke, liebe Großeltern</span>
+                <button class="lyric-btn" onclick="toggleLyrics(this)">Songtext</button>
+            </div>
+            <audio controls preload="none">
+                <source src="https://raw.githubusercontent.com/Chrisophy/Der_Bruder/main/01 - Der Bruder - Danke, liebe Großeltern.mp3" type="audio/mpeg">
+                Dein Browser unterstützt kein Audio.
+            </audio>
+            <div class="lyrics">
+[Verse 1]
+Großgezogen
+Mit Geduld
+Ihr habt mich an die Hand genommen
+Habt mich getröstet
+Wenn ich fiel
+Habt mir den Mut zurückgegeben
+
+Auf mich aufgepasst
+Tag und Nacht
+Niemals zu müde für Geschichten
+Habt mir erklärt
+Wie Leben geht
+Habt mir gezeigt
+Ich darf auch schlichten
+
+[Chorus]
+Danke
+Liebe Großeltern
+Christel und Heiner
+Ihr zwei
+Alle sagen
+Ihr seid meine Eltern
+Und ich lächle
+Weil so viel Liebe dabei
+Danke
+Liebe Großeltern
+Mehr Familie geht nicht
+Ihr seid die Besten
+Liebe Oma und Opa
+Mein Herz trägt euch im Licht
+
+[Verse 2]
+Urlaub gemeinsam
+Sommerwind
+Campingplatz direkt am Rhein
+Abends die Lichter
+Leises Lachen
+Ich wusste
+Hier darf ich Kind sein
+
+Ihr habt mir so viel beigebracht
+Von Ehrlichkeit bis Kaffeeklatsch
+Habt mich besucht
+Egal wo ich war
+Immer ein Platz an eurem Platz
+
+[Chorus]
+Danke
+Liebe Großeltern
+Christel und Heiner
+Ihr zwei
+Alle sagen
+Ihr seid meine Eltern
+Und ich lächle
+Weil so viel Liebe dabei
+Danke
+Liebe Großeltern
+Mehr Familie geht nicht
+Ihr seid die Besten
+Liebe Oma und Opa
+Mein Herz trägt euch im Licht
+
+[Bridge]
+Ihr wart da
+Wenn alles wackelt
+Habt mich gehalten
+Leise
+Sacht
+Aus jedem Zweifel
+Jeder Frage
+Habt ihr ein kleines Wunder gemacht
+
+[Chorus]
+Danke
+Liebe Großeltern
+Christel und Heiner
+Ihr zwei
+Alle sagen
+Ihr seid meine Eltern
+Und ich lächle
+Weil so viel Liebe dabei
+Danke
+Liebe Großeltern
+Für jede Stunde
+Jedes Jahr
+Ihr seid die Besten
+Liebe Oma und Opa
+Und das bleibt ewig wahr
+            </div>
+        </div>
+                    
+        <div class="song-card">
+            <div class="song-info">
+                <span class="song-title">02. Der Bruder - Campingplatz am Rhein</span>
+                <button class="lyric-btn" onclick="toggleLyrics(this)">Songtext</button>
+            </div>
+            <audio controls preload="none">
+                <source src="https://raw.githubusercontent.com/Chrisophy/Der_Bruder/main/02 - Der Bruder - Campingplatz am Rhein.mp3" type="audio/mpeg">
+                Dein Browser unterstützt kein Audio.
+            </audio>
+            <div class="lyrics">
+[Verse 1]
+Großgezogen
+Streng und doch so frei
+Ihr wart immer da für mich
+Jahr um Jahr
+Pausenbrot
+Geschichten
+Leises "Wie geht’s?"
+Und jedes kleine Drama war bei euch halb so schwer
+
+Auf mich aufgepasst
+Wenn’s spät wurde
+Schlüssel unter’m Blumentopf
+Licht im Flur
+Ihr habt mich angeschaut
+So stolz
+So klar
+Da war so viel Vertrauen in diesem Blick nur
+
+[Chorus]
+Oma
+Opa
+Ihr seid meine Welt
+Ihr habt mich gehalten
+Wenn alles zerfällt
+Ihr wurdet für meine Eltern gehalten
+Dabei
+Seid ihr meine Großeltern
+Mein Zuhause am Rhein
+Ich will einfach Danke sagen heut
+Ihr seid die Besten
+Für alle Zeit
+
+[Verse 2]
+Urlaub mit euch
+Koffer viel zu voll
+Campingplatz am Rhein
+Sonne auf dem Zelt
+Plastikstühle
+Kalter Kaffee
+Lautes Lachen
+Ihr habt mir gezeigt
+Was im Leben wirklich zählt
+
+Wasser an den Füßen
+Steine in der Hand
+"Heb den Kopf
+Schau nach vorn"
+Leise gesagt
+Ihr habt so viel erklärt
+Ohne große Worte
+Habt mir Mut gemacht
+Wenn ich an mir gezweifelt hab
+
+[Chorus]
+Oma
+Opa
+Ihr seid meine Welt
+Ihr habt mich gehalten
+Wenn alles zerfällt
+Ihr wurdet für meine Eltern gehalten
+Dabei
+Seid ihr meine Großeltern
+Mein Zuhause am Rhein
+Ich will einfach Danke sagen heut
+Ihr seid die Besten
+Für alle Zeit
+
+[Bridge]
+Ihr seid mir nachgereist
+Egal wo ich war
+Neue Stadt
+Neues Zimmer
+Doch ihr wart da (oh ja)
+Mit Kuchen in der Bahn
+Mit Zeit in der Hand
+Habt mich angeschaut und gleich erkannt
+
+Immer wieder Besuch
+Immer wieder derselbe Satz:
+"Wenn was ist
+Wir sind da"
+Tag und Nacht
+Und ich steh hier
+Werd langsam groß
+Doch ihr bleibt mein sicherer Hafen
+Ganz groß
+
+[Chorus]
+Oma
+Opa
+Ihr seid meine Welt
+Ihr habt mich gehalten
+Wenn alles zerfällt
+Ihr wurdet für meine Eltern gehalten
+Dabei
+Seid ihr meine Großeltern
+Mein Zuhause am Rhein
+Ich will heute Danke sagen
+Laut
+Hab euch so lieb
+Mehr als ihr glaubt
+
+[Chorus]
+Oma
+Opa
+Ihr seid meine Welt
+Ihr habt mich gehalten
+Wenn alles zerfällt
+Ihr wurdet für meine Eltern gehalten
+Dabei
+Seid ihr meine Großeltern
+Mein Zuhause am Rhein
+Ich will einfach Danke sagen heut
+Ihr seid die Besten
+Für alle Zeit (oh oh)
+Ihr seid die Besten
+Für alle Zeit
+            </div>
+        </div>
+
+        <div class="song-card">
+            <div class="song-info">
+                <span class="song-title">03. Der Bruder - Haus voller Stimmen</span>
+                <button class="lyric-btn" onclick="toggleLyrics(this)">Songtext</button>
+            </div>
+            <audio controls preload="none">
+                <source src="https://raw.githubusercontent.com/Chrisophy/Der_Bruder/main/03 - Der Bruder - Haus voller Stimmen.mp3" type="audio/mpeg">
+                Dein Browser unterstützt kein Audio.
+            </audio>
+            <div class="lyrics">
+[Verse 1]
+Da war das Haus
+Vier Teller auf dem Tisch
+Michaela lacht im Flur
+Marina malt sich die Zukunft an die Wand
+
+Sebastian zählt die Schritte
+Die Treppe rauf
+Die Jahre runter
+Mama ruft zum Essen
+Und tut so
+Als ob die Zeit nicht rennt
+
+[Chorus]
+Und ich frag mich:
+Wer füllt die Zimmer
+Wenn wir weg sind?
+Wer fängt die Stille
+Wenn sie schreit?
+Mama
+Dein Herz hing an den Klinken
+An jedem "Gute Nacht
+Bis irgendwann"
+
+Es tut so weh
+Wenn alles kippt
+Wenn ein Zuhause auseinanderbricht
+Doch irgendwo
+Ganz leis im Rücken
+Zieht mich ein Morgen in ein neues Licht
+
+[Verse 2]
+Erst packen meine Schwestern
+Leben in zu kleine Kisten
+Ein letzter Witz im Türrahmen
+Dann nur noch Staub im Gegenlicht
+
+Ich geh als Nächster
+Mit zwei Taschen und zu viel Schuld
+Papa sagt: "Das ist der Lauf der Dinge"
+Doch Mamas Blick bleibt an der Gardine hängen
+
+[Chorus]
+Und ich frag mich:
+Wer füllt die Zimmer
+Wenn wir weg sind?
+Wer fängt die Stille
+Wenn sie schreit?
+Mama
+Dein Herz hing an den Klinken
+An jedem "Gute Nacht
+Bis irgendwann"
+
+Es tut so weh
+Wenn alles kippt
+Wenn ein Zuhause auseinanderbricht
+Doch irgendwo
+Ganz leis im Rücken
+Zieht mich ein Morgen in ein neues Licht
+
+[Bridge]
+Dann kam der Tag
+Du bist gegangen
+Ohne Koffer
+Ohne Plan
+Nur ein Rahmen auf dem Schrank
+Und ein Duft im alten Schal
+
+Papa hält es nicht mehr aus hier
+Zieht mit Sebastian weiter
+Das Haus steht da wie ein vergessener Satz
+Mit einem Punkt zu viel am Ende
+
+[Chorus]
+Und ich sag mir:
+Wir füllen Zimmer an anderen Orten
+Wir fangen Stille
+Wenn sie schreit
+Mama
+Dein Herz war nie verloren
+Es schlägt in jedem "Weißt du noch" zu zweit
+
+Es tut noch weh
+Weil alles kippt
+Weil ein Zuhause auseinanderbricht
+Doch irgendwo
+In meinen Schritten
+Wächst aus dem Abschied leises
+Neues Licht
+
+[Outro]
+Ein Haus voller Stimmen
+Jetzt nur in mir drin
+Ich trag euch durch die Straßen
+Bis wir uns wiederfinden (oh ja)
+            </div>
+        </div>
+
+        <div class="song-card">
+            <div class="song-info">
+                <span class="song-title">04. Der Bruder - Unser altes Haus</span>
+                <button class="lyric-btn" onclick="toggleLyrics(this)">Songtext</button>
+            </div>
+            <audio controls preload="none">
+                <source src="https://raw.githubusercontent.com/Chrisophy/Der_Bruder/main/04 - Der Bruder - Unser altes Haus.mp3" type="audio/mpeg">
+                Dein Browser unterstützt kein Audio.
+            </audio>
+            <div class="lyrics">
+[Verse 1]
+Michaela packt Kartons
+Marina lacht
+Sagt "Wird schon geh’n"
+Kinderzimmer wie ein Film
+Der kurz vorm Abspann stehn bleibt
+Ich zähl Risse an der Wand
+So halt ich mich an irgendwas
+Zieh die Poster viel zu langsam ab
+Damit es länger dauert
+
+[Pre-Chorus]
+Und jedes Zimmer flüstert leise
+Ich weiß
+Ihr kommt nicht mehr zurück
+Doch in den Türen hängt noch
+So viel altes Glück
+
+[Chorus]
+Unser altes Haus
+Steht noch in mir
+Jedes Zimmer trägt
+Dein Parfüm
+Dein Papier
+Mama
+Ich glaub
+Dein Herz war viel zu laut
+Für all die stille
+Stille
+Als wir ausgezogen sind
+Ich hoff
+Dass morgen
+Endlich milder klingt
+
+[Verse 2]
+Dann war ich dran
+Umzugstag
+Papa winkt zu lang vorm Tor
+Er tut so
+Als sei's Routine
+Doch seine Hände zittern
+Sebastian bleibt noch ein Jahr
+Als letzter Wächter unsrer Welt
+Bis auch sein Schlüssel auf dem Tisch
+Wie ein Abschied liegen bleibt
+
+[Pre-Chorus]
+Und deine Tassen stehn noch da
+Zwei bleiben plötzlich unbenutzt
+Dein Blick durchs Küchenfenster
+Lernt langsam diesen Schluss
+
+[Chorus]
+Unser altes Haus
+Steht noch in mir
+Jedes Zimmer trägt
+Dein Parfüm
+Dein Papier
+Mama
+Ich glaub
+Dein Herz ist leis’ verblasst
+An jedem Tag
+An dem
+Ein Kind die Treppe lass
+Ich hoff
+Dass morgen
+Endlich leichter passt
+
+[Bridge]
+Vielleicht baun wir neue Zimmer
+In Städten
+Die du nie geseh’n
+Decken voller fremder Sterne
+Doch wir nehmen dich mit
+In jeder Ecke
+Die wir richt’n
+In jedem Lachen
+Das noch bricht
+Durch all die Trauer
+All die Schicht
+Kommt irgendwann dein Licht (oh-oh)
+
+[Chorus]
+Unser altes Haus
+Steht noch in mir
+Auch wenn Gras jetzt durch
+Die alten Fugen bricht
+Mama
+Ich schwör
+Ich lern zu steh’n
+Zu geh’n
+Ich werd aus all den leeren
+Räumen was versteh’n
+Vielleicht wird morgen
+Endlich freundlich sein
+Ein kleines Fenster
+Für ein bisschen neuen Schein
+            </div>
+        </div>
+        
+        <div class="song-card">
+            <div class="song-info">
+                <span class="song-title">05. Der Bruder - Sonnenuntergang auf der Willich</span>
+                <button class="lyric-btn" onclick="toggleLyrics(this)">Songtext</button>
+            </div>
+            <audio controls preload="none">
+                <source src="https://raw.githubusercontent.com/Chrisophy/Der_Bruder/main/05 - Der Bruder - Sonnenuntergang auf der Willich.mp3" type="audio/mpeg">
+                Dein Browser unterstützt kein Audio.
+            </audio>
+            <div class="lyrics">
+[Intro]
+Dieter lacht am Steuer (hey!)
+Christina lehnt sich an
+Die Willich schneidet Wellen
+Tag fängt langsam an
+
+[Verse 1]
+Sonne knallt aufs weiße Tuch
+Salz auf Lippen
+Haut voll Fluch(t)
+Segel voll
+Wir ziehen hinaus
+Alle Sorgen bleiben zuhaus
+
+IJsselmeer glitzert wie Glas
+Spiegel von dem ganzen Spaß
+Christina dreht sich einmal rum
+Sagt: „Schau
+Wie weit wir schon sind
+Komm“
+
+[Chorus]
+Es ist so schön
+Frei zu sein
+Auf dem Wasser
+Nur wir drei
+Dieter
+Die Willich und du an meiner Hand (oh-oh)
+Wind in den Segeln
+Wir treiben dahin
+Alles ergibt auf einmal Sinn
+Auf dem IJsselmeer
+Wir zwei
+Wir zwei am Rand
+
+[Verse 2]
+Abends brennt der Himmel rot
+Stille rund um unser Boot
+Anker fällt
+Ein kurzer Klang
+Herz schlägt weiter
+Ganz entspannt
+
+Grill geht an
+Es zischt ganz leis
+Export Bier
+Der Tag war heiß
+Dieter prostet rüber
+Grinst
+„Auf euch beide
+Dass ihr gewinnt“
+
+[Chorus]
+Es ist so schön
+Frei zu sein
+Auf dem Wasser
+Nur wir drei
+Dieter
+Die Willich und du an meiner Hand (yeah-yeah)
+Wind in den Segeln
+Wir treiben dahin
+Alles ergibt auf einmal Sinn
+Auf dem IJsselmeer
+Wir zwei
+Wir zwei am Rand
+
+[Bridge]
+In den Himmel schauen
+Sterne zählen
+Lautlos trauen
+Christina lacht
+Ihr Kleid im Licht
+„So fühlt sich Zukunft an“
+Sagst du und küsst mich
+
+Wellen wiegen uns ganz sacht
+Nacht hat über uns gewacht
+Und ich denk mir
+Tief in mir drin:
+Wenn das hier Liebe ist
+Bleib ich für immer drin
+
+[Chorus]
+Es ist so schön
+Frei zu sein
+Auf dem Wasser
+Nur wir drei
+Dieter
+Die Willich und du an meiner Hand (oh-oh)
+Wind in den Segeln
+Wir treiben dahin
+Alles ergibt auf einmal Sinn
+Auf dem IJsselmeer
+Wir zwei
+Wir zwei am Rand
+
+[Outro]
+Sonne weg
+Doch wir noch hier
+Willich
+Dieter
+Du und Bier
+Leiser Rhythmus
+Leises Meer
+Und mein Herz will immer mehr
+            </div>
+        </div>
+
+        <div class="song-card">
+            <div class="song-info">
+                <span class="song-title">06. Der Bruder - So weit weg</span>
+                <button class="lyric-btn" onclick="toggleLyrics(this)">Songtext</button>
+            </div>
+            <audio controls preload="none">
+                <source src="https://raw.githubusercontent.com/Chrisophy/Der_Bruder/main/06 - Der Bruder - So weit weg.mp3" type="audio/mpeg">
+                Dein Browser unterstützt kein Audio.
+            </audio>
+            <div class="lyrics">
+[Verse 1]
+Früher in Willich
+Gleiche Straße
+Gleiche Clique
+Gleicher Plan
+Du standst einfach vor der Türe
+Und wir sind einfach losgefahr'n
+Michaela
+Deine Jacke
+Lag bei mir im Flur so oft
+Jetzt liegt da nur noch die Stille
+Die von alten Tagen hofft
+
+[Chorus]
+So weit weg
+Von Willich nach Schiefbahn
+Dabei ist das auf der Karte nur ein Strich
+So weit weg
+Seh dich kaum noch an den Bahn'n
+Und doch fehlt mir hier zu Hause
+Dein verrücktes altes Ich
+So weit weg
+Und doch so nah in mir
+Michaela
+Manchmal wünsch ich
+Wir wär'n alle noch bei dir
+
+[Verse 2]
+Früher jede Woche Party
+Küche voll
+Der Flur ein Chor
+Wir sind tanzend durch die Jahre
+Kamen früh am Morgen vor
+Dann kamen Kinder
+Kleine Hände
+Auf den Armen statt im Takt
+Uns're Nächte wurden leiser
+Doch ich hab dich nie verpasst
+
+[Chorus]
+So weit weg
+Von Willich nach Schiefbahn
+Dabei ist das auf der Karte nur ein Strich
+So weit weg
+Seh dich kaum noch an den Bahn'n
+Und doch fehlt mir hier zu Hause
+Dein verrücktes altes Ich
+So weit weg
+Und wir zwei schon so erwachsen
+Michaela
+Weißt du noch
+Wie wir früher alles packten
+
+[Bridge]
+Es war schön
+Als wir noch alle zuhause lebten
+Ein Haus
+Ein Hof
+Ein schiefer Tisch
+Jetzt lebt jeder still sein Leben
+Jeder lebt nun nur für sich
+Doch wenn ich abends an dich denke
+Hör ich noch dein altes Lachen
+Frag mich leise
+Liebe Schwester
+Wie wir's wieder öfter schaffen
+
+[Chorus]
+So weit weg
+Von Willich nach Schiefbahn
+Uns're Wege gehen selten Hand in Hand
+So weit weg
+Doch ich trag dich durch die Zeit
+Michaela
+Meine Schwester
+Du bist nie zu weit
+So weit weg
+Und doch bleibst du hier
+Zwischen alten leisen Fotos
+Wohnen wir noch mal bei dir
+            </div>
+        </div>
+
+        <div class="song-card">
+            <div class="song-info">
+                <span class="song-title">07. Der Bruder - Wide away (Lady)</span>
+                <button class="lyric-btn" onclick="toggleLyrics(this)">Songtext</button>
+            </div>
+            <audio controls preload="none">
+                <source src="https://raw.githubusercontent.com/Chrisophy/Der_Bruder/main/07 - Der Bruder - Wide away (Lady).mp3" type="audio/mpeg">
+                Dein Browser unterstützt kein Audio.
+            </audio>
+            <div class="lyrics">
+[Verse 1]
+Back then in Willich
+Same street
+Same clique
+Same plan
+You just stood at the door
+And we just drove off
+Michaela
+Your jacket
+Was so often in my hallway
+Now there's only silence
+Hoping for days gone by
+
+[Chorus]
+So far away
+From Willich to Schiefbahn
+On the map, it's just a line
+So far away
+I hardly ever see you at the train stations anymore
+And yet I miss you here at home
+Your crazy old self
+So far away
+And yet so close inside me
+Michaela
+Sometimes I wish
+We were all still with you
+
+[Verse 2]
+Back then, a party every week
+Kitchen packed
+The hallway a choir
+We danced through the years
+Arriving early in the morning
+Then children came
+Little hands
+In arms instead of in time
+Our nights grew quieter
+But I never Missed
+
+[Chorus]
+So far away
+From Willich to Schiefbahn
+Only on the map is it just a line
+So far away
+I hardly ever see you at the train stations anymore
+And yet I miss you here at home
+Your crazy old self
+So far away
+And we two are already so grown up
+Michaela
+Do you remember
+How we used to pack everything
+
+[Bridge]
+It was beautiful
+When we all still lived at home
+One house
+One yard
+One crooked table
+Now everyone lives quietly their own life
+Everyone lives only for themselves now
+But when I think of you in the evenings
+I still hear your old laughter
+You ask me softly
+Dear sister
+How we can manage to see each other more often
+
+[Chorus]
+So far away
+From Willich to Schiefbahn
+Our paths rarely go hand in hand
+So far away
+But I carry you through time
+Michaela
+My sister
+You are never too far away
+So far away
+And yet you stay here
+Among old quiet photos
+
+Are we staying at your place again?
+            </div>
+        </div>
+
+        <div class="song-card">
+            <div class="song-info">
+                <span class="song-title">08. Der Bruder - Gute Laune Hit</span>
+                <button class="lyric-btn" onclick="toggleLyrics(this)">Songtext</button>
+            </div>
+            <audio controls preload="none">
+                <source src="https://raw.githubusercontent.com/Chrisophy/Der_Bruder/main/08 - Der Bruder - Gute Laune Hit.mp3" type="audio/mpeg">
+                Dein Browser unterstützt kein Audio.
+            </audio>
+            <div class="lyrics">
+[Intro]
+Mach mal leis
+Mach mal laut
+Jeder liebt genau den Sound
+Augen zu
+Wir treiben raus
+Alles dreht sich
+Keiner taucht
+
+[Verse 1]
+Egal ob im Wald oder in der Stadt
+Nachtluft warm
+Weil du sie hast
+Lachen weht durch jede Gass
+Jeder tanzt
+Vergisst den Hass
+
+Nicht allein
+Alle wollen zusammen sein
+Bunte Shirts
+Nackte Füße in den Stein
+Irgendwer ruft: „Bleib noch ein klein’ Moment“
+Und die Zeit rennt
+Rennt
+Rennt
+
+[Chorus]
+Mach mal leis
+Mach mal laut
+Jeder liebt diesen Sound
+Ein Gute-Laune-Hit
+Den keiner vergisst (oh ja)
+Von der Küste bis zur Bar
+Unsre Stimmen sind so klar
+Ein Gute-Laune-Hit
+Den keiner vergisst
+
+[Verse 2]
+Tropische Beats
+Meeresrauschen im Ohr
+Salz auf der Haut
+Deine Spuren im Chor
+Die Vögel fliegen weit und breit
+Unsre Sorgen längst verschneit
+
+Das Meer so blau
+Es tut fast weh
+Sonne brennt
+Doch ich frier nie
+Wenn du lachst
+Wird alles leicht
+Alles echt
+Nichts erreicht uns
+
+[Chorus]
+Mach mal leis
+Mach mal laut
+Jeder liebt diesen Sound
+Ein Gute-Laune-Hit
+Den keiner vergisst (oh oh)
+Egal ob im Wald oder in der Nacht
+Jeder hat hier seinen Spaß
+Ein Gute-Laune-Hit
+Den keiner vergisst
+
+[Bridge]
+Hand in Hand durch den warmen Sand
+Jeder Name schreibt sich in den Rand
+Und wenn der Tag im Wasser versinkt
+Bleibt dieser Refrain
+Den jeder mitsingt (hey!)
+
+[Chorus]
+Mach mal leis
+Mach mal laut
+Jeder liebt diesen Sound
+Ein Gute-Laune-Hit
+Den keiner vergisst (keiner vergisst)
+Von der Küste bis zur Bar
+Unsre Stimmen sind so klar
+Ein Gute-Laune-Hit
+Den keiner vergisst
+            </div>
+        </div>
+
+        <div class="song-card">
+            <div class="song-info">
+                <span class="song-title">09. Der Bruder - Sonnenzeit, Smashbereit</span>
+                <button class="lyric-btn" onclick="toggleLyrics(this)">Songtext</button>
+            </div>
+            <audio controls preload="none">
+                <source src="https://raw.githubusercontent.com/Chrisophy/Der_Bruder/main/09 - Der Bruder - Sonnenzeit, Smashbereit.mp3" type="audio/mpeg">
+                Dein Browser unterstützt kein Audio.
+            </audio>
+            <div class="lyrics">
+[Intro]
+Leichte Vibration
+Unter meiner Haut
+Kleine Welle
+Leichte Welle
+Die den Tag aufbaut
+
+[Verse 1]
+Auf dem Balkon
+Nackte Füße
+Kaffee lauwarm
+Alles gut
+Sonnenflecken auf der Bluse
+Ich hab Urlaub in dem Blut
+Nachbarn gießen ihre Blumen
+Straße glitzert
+Nix passiert
+Irgendwo beginnt zu summen
+Dieses Kribbeln
+Das mich führt
+
+[Chorus]
+Sonnenzeit
+Smashbereit
+Wir drehen höher
+Immer weiter
+Gute Laune
+Weit und breit
+Herzschlag wird zum Lautsprecher
+Sonnenzeit
+Smashbereit
+Alles tanzt in meinem Blick
+Tropisch warm und federleicht
+Jeder Takt ein kleines Glück (oh ja)
+
+[Verse 2]
+Flip-Flops klatschen auf dem Pflaster
+Eis schmilzt viel zu schnell
+Kinder lachen
+Alles lauter
+Doch mein Kopf bleibt karussell
+Aus dem Park weht eine Melodie
+Alt und doch so frisch
+Berühmte Töne in der Brise
+Springen auf den Wellentisch
+
+[Chorus]
+Sonnenzeit
+Smashbereit
+Wir drehen höher
+Immer weiter
+Gute Laune
+Weit und breit
+Herzschlag wird zum Lautsprecher
+Sonnenzeit
+Smashbereit
+Alles tanzt in meinem Blick
+Tropisch warm und federleicht
+Jeder Takt ein kleines Glück (hey!)
+
+[Bridge]
+Kleine Pause
+Luft anhalten
+Nur die Hitze
+Nur das Licht
+Klassisch schöne Linien falten
+Sich ins Lachen in mein Gesicht
+Dann der Drop
+Die Welt geht hüpfen
+Farben springen hin und her
+Alte Melodie im Rücken
+Neue Träume übers Meer
+
+[Chorus]
+Sonnenzeit
+Smashbereit
+Wir drehen höher
+Immer weiter
+Gute Laune
+Weit und breit
+Herzschlag wird zum Lautsprecher
+Sonnenzeit
+Smashbereit
+Alles tanzt in meinem Blick
+Tropisch warm und federleicht
+Jeder Takt ein kleines Glück
+            </div>
+        </div>
+
+        <div class="song-card">
+            <div class="song-info">
+                <span class="song-title">10. Der Bruder - Jeannie</span>
+                <button class="lyric-btn" onclick="toggleLyrics(this)">Songtext</button>
+            </div>
+            <audio controls preload="none">
+                <source src="https://raw.githubusercontent.com/Chrisophy/Der_Bruder/main/10 - Der Bruder - Jeannie.mp3" type="audio/mpeg">
+                Dein Browser unterstützt kein Audio.
+            </audio>
+            <div class="lyrics">
+​(Strophe 1)
+Geboren im April, seit August bei mir
+Ein kleines schwarzes Wunder auf vier Pfoten hier
+Kurzes Fell wie Samt, so dunkel wie die Nacht
+Doch an den Pfoten hat der Schnee Station gemacht
+Vom Kinn bis zum Bauch ein Streifen in Weiß
+Du bist mein Glück, das ich jeden Tag weiß
+Jeannie, du bist mehr als nur ein Tier
+Seit 2021 gehörst du zu mir.
+​(Chorus)
+Oh Jeannie, kleine Quasselstrippe mit Herz
+Du nimmst mir jeden Kummer, jeden Schmerz
+Wenn der Morgen graut und der Hunger ruft
+Ist „Hungä“ das Wort, das durch das Zimmer verpufft
+Du folgst mir auf Schritt und Tritt durch das Haus
+In jedem Zimmer kennst du dich aus.
+​(Strophe 2)
+Zwei Stunden Ruhe unterm Bett am Tag
+Weil jeder mal ein Päuschen braucht und mag
+Doch fahr ich zum Einkauf, nur kurz aus dem Haus
+Hältst du an der Tür schon wieder Ausschau
+Kaum bin ich zurück, wird ausgiebig geschmust
+Weil du genau weißt, dass du mir gut tust
+Ob Fliegenjagd oder der Laserpoint-Schein
+Du stürzt dich mit Eifer in jedes Spiel rein.
+​(Bridge)
+Auf dem Balkon die Welt beobachten, ganz still
+Weil du gar nicht weg von hier rennen willst
+Und wenn es Nacht wird, kommt die schönste Zeit
+Dann liegt im Bett die Gemütlichkeit bereit
+Zehn Stunden Schlummern, ganz nah bei mir
+Ich steh erst auf, wenn du aufwachst bei dir.
+​(Chorus)
+Oh Jeannie, kleine Quasselstrippe mit Herz
+Du nimmst mir jeden Kummer, jeden Schmerz
+Wenn der Morgen graut und der Hunger ruft
+Ist „Hungä“ das Wort, das durch das Zimmer verpufft
+Du folgst mir auf Schritt und Tritt durch das Haus
+In jedem Zimmer kennst du dich aus.
+​(Outro)
+Meine süße Jeannie, schwarzes Fell, weiße Schuh’
+Der beste Teil meines Tages bist einfach du.
+(Ganz leise geflüstert: „Hungä...“)
+            </div>
+        </div>
+
+        <div class="song-card">
+            <div class="song-info">
+                <span class="song-title">11. Der Bruder - Jeannie (Hard)</span>
+                <button class="lyric-btn" onclick="toggleLyrics(this)">Songtext</button>
+            </div>
+            <audio controls preload="none">
+                <source src="https://raw.githubusercontent.com/Chrisophy/Der_Bruder/main/11 - Der Bruder - Jeannie (Hard).mp3" type="audio/mpeg">
+                Dein Browser unterstützt kein Audio.
+            </audio>
+            <div class="lyrics">
+​(Verse 1)
+Born in April, with me since August
+A little black wonder on four paws here
+Short fur like velvet, as dark as night
+But the snow has stopped on her paws
+A stripe of white from her chin to her belly
+You are my happiness, which I know every day
+Jeannie, you are more than just an animal
+You've been mine since 2021.
+
+(Chorus)
+Oh Jeannie, little chatterbox with a heart of gold
+You take away all my sorrow, all my pain
+When dawn breaks and hunger calls
+"Hungry" is the word that vanishes through the room
+You follow me everywhere through the house
+You know your way around every room.
+
+(Verse 2)
+Two hours of rest under the bed each day
+Because everyone needs and wants a break now and then
+But when I go shopping, just a quick trip out of the house
+You're already looking out the door again
+As soon as I get back, we cuddle extensively
+Because you know exactly how good you are for me
+Whether it's chasing flies or playing with laser pointers
+You throw yourself into every game with enthusiasm.
+
+(Bridge)
+Watching the world from the balcony, completely still
+Because you don't want to run away from here at all
+And when night falls, the best time begins
+Then coziness awaits in bed
+Ten hours of slumber, so close to me
+I only get up when you wake up with you.
+
+(Chorus)
+Oh Jeannie, little chatterbox with a heart of gold
+You take away all my sorrow, all my pain
+When dawn breaks and hunger calls
+"Hungry" is the word that drifts through the room
+You follow me everywhere I go through the house
+You know your way around every room.
+
+(Outro)
+My sweet Jeannie, black fur, white shoes
+The best part of my day is simply you.
+
+(Whispered very softly: "Hungry...")
+            </div>
+        </div>
+
+        <div class="song-card">
+            <div class="song-info">
+                <span class="song-title">12. Der Bruder - Jesus</span>
+                <button class="lyric-btn" onclick="toggleLyrics(this)">Songtext</button>
+            </div>
+            <audio controls preload="none">
+                <source src="https://raw.githubusercontent.com/Chrisophy/Der_Bruder/main/12 - Der Bruder - Jesus.mp3" type="audio/mpeg">
+                Dein Browser unterstützt kein Audio.
+            </audio>
+            <div class="lyrics">
+​​[Intro]
+​(Sanftes Rauschen, das Geräusch von fernen Autoreifen auf nassem Asphalt)
+(Ein einsamer Rhythmus setzt ein)
+​[Strophe 1]
+​Die Ampel springt auf Bernstein, dann auf Rot
+Ich zähle die Sekunden bis zum Abendbrot der Geister
+Der Asphalt spiegelt das Licht der Reklame
+Ich kenne jede Ecke, doch keinen einzigen Namen
+In den Schaufenstern stehen Puppen mit leerem Blick
+Sie tragen die Mode von morgen und wollen nie zurück
+Ich ziehe den Kragen hoch, der Wind schmeckt nach Metall
+In dieser Schlucht aus Glas bin ich nur ein Widerhall.
+​[Pre-Chorus]
+​Und die Stadt atmet schwer unter der Last der Elektrizität
+Es ist immer zu früh oder schon viel zu spät
+Die Drähte über uns summen ein Lied von Einsamkeit
+Wir sind alle verbunden, doch niemand hat Zeit.
+​[Chorus]
+​Wir sind nur Echos in den Neon-Gassen
+Suchen nach Händen, die wir sofort wieder loslassen
+Ein Leuchten im Dunkeln, ein Rauschen im Ohr
+Wir haben den Schlüssel, doch finden das Tor nicht mehr
+Oh, das Neon-Echo brennt in der Nacht
+Wir schlafen erst ein, wenn die Sonne erwacht.
+​[Strophe 2]
+​An der Haltestelle wartet ein Mann mit grauem Hut
+Er starrt auf sein Handy, als fände er dort seinen Mut
+Die U-Bahn vibriert tief unten im Bauch der Welt
+Ein mechanisches Biest, das sich durch den Untergrund quält
+Ich steige ein, die Türen schließen mit einem Zischen
+Hier drinnen verschwimmen die Grenzen, die Farben verwischen
+Jeder starrt ins Leere, ein Meer aus blauem Licht
+Man sieht den Schirm, doch das Gegenüber sieht man nicht.
+​[Bridge]
+​(Tempo zieht an, die Intensität steigt)
+Vielleicht sind wir Pixel in einem kaputten System
+Vielleicht sind wir Geister, die sich gegenseitig nicht seh'n
+Wir bauen Kathedralen aus Glas und aus Stahl
+Und wundern uns dann über die innere Qual
+Reiß die Fenster auf, lass die Stille herein
+Man muss nicht laut sein, um gehört zu sein!
+Hörst du es? Hörst du es?
+​[Gitarren-/Synth-Solo]
+​(Langgezogene, hallende Töne, die das Echo-Thema aufgreifen)
+​[Chorus]
+​Wir sind nur Echos in den Neon-Gassen
+Suchen nach Händen, die wir sofort wieder loslassen
+Ein Leuchten im Dunkeln, ein Rauschen im Ohr
+Wir haben den Schlüssel, doch finden das Tor nicht mehr
+Oh, das Neon-Echo brennt in der Nacht
+Wir schlafen erst ein, wenn die Sonne erwacht.
+​[Outro]
+​Wenn die Sonne erwacht...
+Die Lichter verblassen, das Grau übernimmt
+Ein neuer Tag, der die alten Lieder bestimmt
+Nur ein Echo...
+            </div>
+        </div>
+        <script>
+            
+            function toggleLyrics(btn) {
+                const lyricsDiv = btn.parentElement.nextElementSibling.nextElementSibling;
+                if (lyricsDiv.style.display === "block") {
+                    lyricsDiv.style.display = "none";
+                    btn.innerText = "Songtext";
+                } else {
+                    lyricsDiv.style.display = "block";
+                    btn.innerText = "Schließen";
+                }
+            }
+        </script>
+    </div>
+
+</body>
+</html>
